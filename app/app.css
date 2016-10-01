@@ -1,15 +1,11 @@
 /* app css stylesheet */
 
 body {
-font-family: 'Open Sans', sans-serif;
+font-family: 'Lato', sans-serif;
 }
 #result .match:hover {
   box-shadow: 0 0 15px #222;
 
-}
-.h4{
-  /*font-family: 'Open Sans', sans-serif;*/
-  font-size: 2em;
 }
 .form-group{
   padding: 0px 9px 0px 0px;

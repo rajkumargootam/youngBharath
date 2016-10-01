@@ -16,7 +16,7 @@
   <div class="row">
     <div ng-repeat="course in courses" class="col-xs-6 col-md-3" id="result">
       <div class="well match">
-        <h4 class="header">{{course.title}}</h4>
+        <h4 class="text-center">{{course.title}}</h4>
         <p class="paragraph">{{course.description}}</p>
         <button  type="submit" ng-click="remove(course)" class="btn btn-default">Delete</button>
         <!-- Button trigger modal-->
@@ -50,7 +50,8 @@
           <div class="form-group">
             <label for="age" class="col-sm-2 control-label">Description</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="description" placeholder="description" ng-model="editCourse.description">
+              <textarea name="name" type="text" class="form-control" id="description" placeholder="description" ng-model="editCourse.description" rows="4" cols="10"></textarea>
+              <!-- <input type="text" class="form-control" id="description" placeholder="description" ng-model="editCourse.description"> -->
             </div>
           </div>
         </form>
