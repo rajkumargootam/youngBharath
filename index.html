@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>My AngularJS App</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/css/main.css">
+  <link rel="stylesheet" href="app.css"/>
+  <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
+</head>
+<body >
+
+
+  <nav class="navbar navbar-default ">
+  <div class="">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">YoungBharath</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#/courses">courses</a></li>
+        <li><a href="#/faculty">faculty</a></li>
+
+
+
+        <a href="#/login" ng-if="!loggedIn">Login</a>
+
+
+        <li class="dropdown" ng-if="loggedIn">
+          <a  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{user.email}}<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li ng-show="loggedIn"><a href="#/account">account</a></li>
+            <!-- <li role="separator" class="divider"></li> -->
+            <!-- <li><a href="#">Logout</a></li> -->
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+  <!-- <div class="navbar">
+      <nav class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">YoungBharath</a>
+          </div> -->
+          <!-- <div class ="unorderlist">
+            <ul class="nav navbar-nav navbar-right pull-right"> -->
+              <!-- <li><a href="#/home">Jobseeker</a></li> -->
+              <!-- <li><a href="#/chat">Employes</a></li>
+              <li ng-hide="loggedIn"><a href="#/login">Jobseekers</a></li>
+              <li ng-show="loggedIn"><a href="#/account">account</a></li>
+            </ul> -->
+            <!-- <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li ng-hide="loggedIn"><a href="#/login">Jobseekers</a></li>
+            <li ng-show="loggedIn"><a href="#/account">account</a></li>
+          </ul>
+        </li>
+      </ul> -->
+          </div>
+        </div>
+      </nav>
+      </div>
+
+
+
+
+
+            <!-- <ul class="nav navbar-nav navbar-right pull-right">
+              <li><a href="#/home">Jobseeker</a></li>
+              <li><a href="#/chat">Employes</a></li>
+              <li ng-hide="loggedIn"><a href="#/login">Jobseekers</a></li>
+              <li ng-show="loggedIn"><a href="#/account">account</a></li>
+            </ul> -->
+
+
+  <!-- <ul class="menu">
+    <li><a href="#/home">home</a></li>
+    <li><a href="#/chat">chat</a></li>
+    <li><a href="#/faculty">faculty</a></li>
+    <li><a href="#/courses">courses</a></li>
+    <li><a href="#/awards">awards</a></li>
+    <li><a href="#/contact">contact</a></li>
+    <li><a href="#/awards">Reviwes</a></li>
+    <li ng-hide="loggedIn"><a href="#/login">login</a></li>
+    <li ng-show="loggedIn"><a href="#/account">account</a></li>
+  </ul> -->
+
+  <div ng-view></div>
+
+  <!-- <div>AngularFire-seed v<span app-version></span></div> -->
+
+  <!-- In production use:
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.x/angular.min.js"></script>
+<script src="//cdn.firebase.com/js/client/2.2.x/firebase.js"></script>
+<script src="//cdn.firebase.com/libs/angularfire/1.0.x/angularfire.min.js"></script>
+-->
+
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/firebase/firebase.js"></script>
+  <script src="bower_components/angularfire/dist/angularfire.js"></script>
+
+
+  <script src="app.js"></script>
+  <script src="config.js"></script>
+
+  <script src="components/appversion/appversion-directive.js"></script>
+  <script src="components/auth/auth.js"></script>
+  <script src="components/firebase.utils/firebase.utils.js"></script>
+  <script src="components/ngcloak/ngcloak-decorator.js"></script>
+  <script src="components/reverse/reverse-filter.js"></script>
+  <script src="components/security/security.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <script src="home/home.js"></script>
+  <script src="account/account.js"></script>
+  <script src="chat/chat.js"></script>
+  <script src="login/login.js"></script>
+  <script src="courses/courses.js"></script>
+  <script src="faculty/faculty.js"></script>
+</body>
+</html>
