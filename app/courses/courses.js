@@ -49,7 +49,6 @@
       $scope.setEditableCourse = function(course) {
         $scope.editCourse=course;
       }
-
       }
     ]);
 

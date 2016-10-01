@@ -1,28 +1,6 @@
-<!-- <form>
-  <input placeholder="Title" ng-model="title">
-  <textarea placeholder="Description" ng-model="description"></textarea>
-  <button type="submit" ng-click="addCourse()" class="btn btn-default">Add Course</button>
-</form>
-
-<ul id="courses" ng-show="courses.length">
-    <li ng-repeat="courses in courses | reverse">{{courses.text}}</li>
-</ul> -->
-  <!--
-  <div class="container-fluid header text-center" id="header">
-    <div class="container" id="body">
-      <div class ="row">
-       <div class="col-xs-6 col-md-3">
-         <div class="well match">
-           <h3>Title:HTML5</h3>
-           <h3>Description</h3>
-          </div>
-      </div>
-    </div>
-  </div>
-  </div> -->
   <div class="row">
-    <div class="col-md-3">
-      <form  novalidate >
+    <div class="col-md-12">
+      <form  class="form-inline text-center">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="name" ng-model="newFaculty.name">
         </div>
@@ -33,18 +11,21 @@
       </form>
     </div>
   </div>
+  <div class="container">
   <div class="row">
-    <div ng-repeat="faculty in faculties" class="col-md-4 well well-sm">
+    <div ng-repeat="faculty in faculties" class="col-xs-6 col-md-3" id="result">
+      <div class="well match">
       <h4>{{faculty.name}}</h4>
-      <p>{{faculty.emai}}</p>
-      <button type="submit" ng-click="remove(faculty)" class="btn btn-default">Delete</button>
-      <!-- <button type="submit" ng-click="edit(course)" class="btn btn-default">Edit</button> -->
-      <!-- <p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p> -->
-
-      <!-- Button trigger modal By Ved Prakash Gupta -->
-      <button type="button" class="btn btn-primary btn-sm" ng-click="setEditableFaculty(faculty)" data-toggle="modal" data-target="#myModal">
+      <p>{{faculty.email}}</p>
+      <button  type="submit" ng-click="remove(faculty)" class="btn btn-default">Delete</button>
+          <!-- Button trigger modal -->
+      <button  type="button" class="btn btn-primary btn-sm" ng-click="setEditableFaculty(faculty)" data-toggle="modal" data-target="#myModal">
         Edit
       </button>
+    </div>
+    </div>
+    </div>
+  </div>
 
       <!-- Modal -->
       <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -78,9 +59,3 @@
           </div>
         </div>
       </div>
-
-  </div>
-  </div>
-    <!-- <ul id="courses">
-        <li ng-repeat="course in courses | reverse">{{course.title}}</li>
-    </ul> -->

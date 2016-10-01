@@ -8,10 +8,13 @@ angular.module('myApp.login', ['firebase.utils', 'firebase.auth', 'ngRoute'])
     });
   }])
 
-  .controller('LoginCtrl', ['$scope', 'Auth', '$location', 'fbutil', function($scope, Auth, $location, fbutil) {
+  .controller('LoginCtrl', ['$scope', '$rootScope',  'Auth', '$location', 'fbutil', function($scope, Auth, $location, fbutil,$rootScope) {
     $scope.email = null;
     $scope.pass = null;
     $scope.confirm = null;
+    $scope.role = {
+      name: 'jobseeker',
+    };
     $scope.createMode = false;
 
     $scope.login = function(email, pass) {
@@ -30,22 +33,27 @@ angular.module('myApp.login', ['firebase.utils', 'firebase.auth', 'ngRoute'])
       if( assertValidAccountProps() ) {
         var email = $scope.email;
         var pass = $scope.pass;
+        var role = $scope.role;
         // create user credentials in Firebase auth system
-        Auth.$createUser({email: email, password: pass})
+        Auth.$createUser({email: email, password: pass, role:role.name})
           .then(function() {
             // authenticate so we have permission to write to Firebase
-            return Auth.$authWithPassword({ email: email, password: pass });
+            return Auth.$authWithPassword({ email: email, password: pass});
+          })
+          .catch(function(err) {
+            console.log(err)
           })
           .then(function(user) {
             // create a user profile in our data store
             var ref = fbutil.ref('users', user.uid);
+            $rootScope.user = user.password;
             return fbutil.handler(function(cb) {
-              ref.set({email: email, name: name||firstPartOfEmail(email)}, cb);
+              ref.set({email: email,role:role.name, name: name||firstPartOfEmail(email)}, cb);
             });
           })
           .then(function(/* user */) {
             // redirect to the account page
-            localStorage.setItem('user', JSON.stringify({ email: email}));
+            localStorage.setItem('user', JSON.stringify({ email: email,password:pass,role:role.name}));
             $location.path('/account');
           }, function(err) {
             $scope.err = errMessage(err);

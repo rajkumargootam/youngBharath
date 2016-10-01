@@ -18,11 +18,19 @@ angular.module('myApp', [
     });
   }])
 
-  .run(['$rootScope', 'Auth', function($rootScope, Auth) {
+  .run(['$rootScope', 'Auth', 'fbutil', '$firebaseArray', function($rootScope, Auth, fbutil, $firebaseArray) {
     // track status of authentication
     Auth.$onAuth(function(user) {
       console.log(user);
       $rootScope.loggedIn = !!user;
-      $rootScope.user = user.password;
+      $rootScope.user = user.password
+      var ref = fbutil.ref('users')
+      $rootScope.allUsers=$firebaseArray(ref);
+      console.log($rootScope.allUsers);
+      $rootScope.allUsers.map(function(user) {
+        if(user.email===$rootScope.user.email) {
+          $rootScope.user.role = user.role;
+        }
+      })
     });
   }]);

@@ -1,16 +1,29 @@
 /* app css stylesheet */
 
-/*body {
-  margin: 10px;
-}*/
+body {
+font-family: 'Open Sans', sans-serif;
+}
+#result .match:hover {
+  box-shadow: 0 0 15px #222;
 
+}
+.h4{
+  /*font-family: 'Open Sans', sans-serif;*/
+  font-size: 2em;
+}
+.form-group{
+  padding: 0px 9px 0px 0px;
+}
+.well{
+  margin-top: 32px;
+  padding: 60px
+}
 .menu {
   list-style: none;
   border-bottom: 0.1em solid black;
   margin-bottom: 2em;
   padding: 0 0 0.5em;
 }
-
 .menu:before {
   content: "[";
 }

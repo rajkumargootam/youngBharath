@@ -32,7 +32,17 @@
            </br>
            <input type="text" id="userPassword" class="form-control input-sm chat-input" placeholder="password" ng-model="pass"/>
            </br>
-           <input type="text" id="userPassword" ng-cloak ng-show="createMode"class="form-control input-sm chat-input" placeholder="password" ng-model="pass"/>
+           <input type="text" id="userPassword" ng-cloak ng-show="createMode"class="form-control input-sm chat-input" placeholder="password" ng-model="confirm"/>
+
+          <div class="form-group">
+
+           <div class="radio" ng-cloak ng-show="createMode" >
+              <label><input type="radio" value="jobseeker" ng-model="role.name">jobseeker</label>
+            </div>
+            <div class="radio" ng-cloak ng-show="createMode" >
+              <label><input type="radio" value="employer" ng-model="role.name">employer</label>
+            </div>
+          </div>
 
            <div class="btn-group">
              <button type="button" class="btn btn-sucess" ng-click="login(email, pass)" ng-hide="createMode">login</button>

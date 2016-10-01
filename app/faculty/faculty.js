@@ -5,6 +5,7 @@
 
   app.controller('FacultyCtrl', ['$scope', 'facultyList', function($scope, facultyList) {
       $scope.faculties = facultyList;
+      console.log($scope.faculties)
       $scope.editFaculty = {};
       $scope.newFaculty = {
         name: '',

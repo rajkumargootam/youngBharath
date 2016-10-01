@@ -1,30 +1,24 @@
 <div class="container">
   <div class="row">
     <div class="col-md-4">
-      <h1>Profile</h1>
+      <h3>Profile</h3>
     </div>
     <div class="col-md-8">
-      <form>
-          <fieldset>
-
-              <label>
-                  <span>Name:</span>
-                  <input type="text" name="name" ng-model="profile.name"/>
-              </label>
-
-              <label>
-                  <span>Email:</span>
-                  <br />{{profile.email}}
-              </label>
-          </fieldset>
-      </form>
+          <form  class="form-inline text-center" >
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="name" ng-model="profile.name">
+            </div>
+            <div class="form-group">
+             <p><span>Email</span></br>{{profile.email}}</p>
+            </div>
+          </form>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-3">
-      <h1>Change password</h1>
+    <div class="col-md-6">
+      <h3>Change password</h3>
     </div>
-    <div class="col-md-9">
+    <div class="col-md-6">
       <form>
               <label>
                   <span>Old Password:</span>
@@ -49,14 +43,12 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-3">
-      <h1>Change Email</h1>
+    <div class="col-md-6">
+      <h3>Change Email</h3>
     </div>
-    <div class="col-md-6 col-md-offset-6">
+    <div class="col-md-6">
       <form>
           <fieldset>
-              <legend>Change Email</legend>
-
               <label>
                   <span>New Email:</span>
                   <input type="text" ng-keypress="clear()" ng-model="newEmail"/>
@@ -75,25 +67,6 @@
       </form>
 
     </div>
-  </div>
-</div>
-<!-- <h2>Account</h2>
-
-<form>
-    <fieldset>
-        <legend>Profile</legend>
-
-        <label>
-            <span>Name:</span>
-            <input type="text" name="name" ng-model="profile.name"/>
-        </label>
-
-        <label>
-            <span>Email:</span>
-            <br />{{profile.email}}
-        </label>
-    </fieldset>
-</form> -->
 
 <!-- <form>
     <fieldset>
@@ -141,5 +114,7 @@
         <p class="good" ng-show="emailmsg">{{emailmsg}}</p>
     </fieldset>
 </form> -->
+  </div>
+</div>
 
 <button ng-click="logout()">Log Out</button>
